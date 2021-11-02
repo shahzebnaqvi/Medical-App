@@ -16,7 +16,7 @@ class _DoctorDashboardState extends State<DoctorDashboard> {
         child: Column(
           children: [
             SizedBox(
-              height: 100,
+              height: 70,
             ),
             doctorbox(context),
             doctoroptionsrow(context),
@@ -24,34 +24,7 @@ class _DoctorDashboardState extends State<DoctorDashboard> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Colors.white,
-          selectedLabelStyle: TextStyle(fontSize: 14),
-          selectedItemColor: Colors.black,
-          unselectedLabelStyle: TextStyle(fontSize: 14.0),
-          unselectedItemColor: Color(0xff546481),
-          items: [
-            BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.star,
-                  color: Colors.red,
-                ),
-                title: Text("")),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.star,
-                color: Colors.red,
-              ),
-              title: Text(""),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.star,
-                color: Colors.red,
-              ),
-              title: Text(""),
-            )
-          ]),
+      bottomNavigationBar: bottombar(),
     );
   }
 }
@@ -60,7 +33,7 @@ Widget doctorbox(BuildContext context) {
   return Stack(children: [
     Container(
       margin: EdgeInsets.only(
-        top: MediaQuery.of(context).size.height * 0.10,
+        top: MediaQuery.of(context).size.height * 0.15,
         bottom: MediaQuery.of(context).size.height * 0.020,
         left: MediaQuery.of(context).size.width * 0.050,
         right: MediaQuery.of(context).size.width * 0.050,
@@ -89,22 +62,28 @@ Widget doctorbox(BuildContext context) {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text("Good Morning",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold)),
           Padding(
             padding: const EdgeInsets.only(top: 8, bottom: 12.0),
             child: Text("Dr. John",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold)),
           ),
           Text(
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eleifend blandit ullamcorper"),
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eleifend blandit ullamcorper",
+            style: TextStyle(
+              fontSize: 11,
+            ),
+          )
         ],
       ),
     ),
     Positioned(
         left: 30,
-        top: 0,
+        top: 10,
         child: CircleAvatar(
-          radius: 60,
+          radius: 50,
+          backgroundImage:
+              NetworkImage("https://ssc98hsc00.com/uploads/user/340558.jpeg"),
         ))
   ]);
 }
@@ -143,10 +122,14 @@ Widget docttext(BuildContext context) {
         Padding(
           padding: const EdgeInsets.only(bottom: 12.0),
           child: Text("Lorem ipsum dolor",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold)),
         ),
         Text(
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eleifend blandit ullamcorper"),
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eleifend blandit ullamcorper",
+          style: TextStyle(
+            fontSize: 11,
+          ),
+        ),
       ],
     ),
   );
@@ -218,4 +201,49 @@ Color colorConvert(String color) {
     converted = Color(int.parse("0x" + color));
   }
   return converted;
+}
+
+Widget bottombar() {
+  return BottomNavigationBar(
+    backgroundColor: Colors.white,
+    selectedLabelStyle: TextStyle(fontSize: 14),
+    selectedItemColor: Colors.black,
+    unselectedItemColor: Color(0xff546481),
+    items: [
+      BottomNavigationBarItem(
+          icon: Icon(
+            Icons.person,
+            color: Colors.blue,
+          ),
+          title: Text("")),
+      BottomNavigationBarItem(
+        icon: Icon(
+          Icons.timelapse,
+          color: Colors.blue,
+        ),
+        title: Text(""),
+      ),
+      BottomNavigationBarItem(
+        icon: Icon(
+          Icons.message,
+          color: Colors.blue,
+        ),
+        title: Text(""),
+      ),
+      BottomNavigationBarItem(
+        icon: Icon(
+          Icons.notifications,
+          color: Colors.blue,
+        ),
+        title: Text(""),
+      ),
+      BottomNavigationBarItem(
+        icon: Icon(
+          Icons.settings_input_component_rounded,
+          color: Colors.blue,
+        ),
+        title: Text(""),
+      ),
+    ],
+  );
 }
