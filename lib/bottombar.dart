@@ -6,6 +6,7 @@ Widget bottombar() {
     selectedLabelStyle: TextStyle(fontSize: 14),
     selectedItemColor: Colors.black,
     unselectedItemColor: Color(0xff546481),
+    currentIndex: 2,
     items: [
       BottomNavigationBarItem(
           icon: Icon(

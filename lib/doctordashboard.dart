@@ -1,5 +1,6 @@
 import 'package:doctor/bottombar.dart';
 import 'package:doctor/hexacolorcode.dart';
+import 'package:doctor/patient.dart';
 import 'package:flutter/material.dart';
 
 class DoctorDashboard extends StatefulWidget {
@@ -81,7 +82,7 @@ Widget doctorbox(BuildContext context) {
     ),
     Positioned(
         left: 30,
-        top: 10,
+        top: 50,
         child: CircleAvatar(
           radius: 50,
           backgroundImage:
@@ -181,8 +182,16 @@ Widget doctoroptionsrow(BuildContext context) {
     child: Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        doctoroptions(context, colorConvert('#299a80'),
-            "assets/images/icon/icon1.png", "PATIENTS"),
+        InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Patient()),
+            );
+          },
+          child: doctoroptions(context, colorConvert('#299a80'),
+              "assets/images/icon/icon1.png", "PATIENTS"),
+        ),
         doctoroptions(context, colorConvert('#2486c7'),
             "assets/images/icon/icon2.png", "APPOINTMENTS"),
         doctoroptions(context, colorConvert('#eb7a31'),
