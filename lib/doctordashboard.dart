@@ -1,3 +1,5 @@
+import 'package:doctor/bottombar.dart';
+import 'package:doctor/hexacolorcode.dart';
 import 'package:flutter/material.dart';
 
 class DoctorDashboard extends StatefulWidget {
@@ -189,61 +191,5 @@ Widget doctoroptionsrow(BuildContext context) {
             "assets/images/icon/icon4.png", "ALERTS"),
       ],
     ),
-  );
-}
-
-Color colorConvert(String color) {
-  color = color.replaceAll("#", "");
-  var converted;
-  if (color.length == 6) {
-    converted = Color(int.parse("0xFF" + color));
-  } else if (color.length == 8) {
-    converted = Color(int.parse("0x" + color));
-  }
-  return converted;
-}
-
-Widget bottombar() {
-  return BottomNavigationBar(
-    backgroundColor: Colors.white,
-    selectedLabelStyle: TextStyle(fontSize: 14),
-    selectedItemColor: Colors.black,
-    unselectedItemColor: Color(0xff546481),
-    items: [
-      BottomNavigationBarItem(
-          icon: Icon(
-            Icons.person,
-            color: Colors.blue,
-          ),
-          title: Text("")),
-      BottomNavigationBarItem(
-        icon: Icon(
-          Icons.timelapse,
-          color: Colors.blue,
-        ),
-        title: Text(""),
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(
-          Icons.message,
-          color: Colors.blue,
-        ),
-        title: Text(""),
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(
-          Icons.notifications,
-          color: Colors.blue,
-        ),
-        title: Text(""),
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(
-          Icons.settings_input_component_rounded,
-          color: Colors.blue,
-        ),
-        title: Text(""),
-      ),
-    ],
   );
 }
